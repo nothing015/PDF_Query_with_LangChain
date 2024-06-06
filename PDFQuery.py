@@ -45,12 +45,12 @@ from langchain_community.vectorstores import FAISS
 
 
 import os
-# Here the OpenAI API key is entered, mine is confidential so I'm using an environment variable to hide hide my API
+# Here the OpenAI API key is entered. Mine is confidential hence I'm using an environment variable to hide my API
 # Key inside my system
-os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+os.environ["OPENAI_API_KEY"] = os.environ.get("OPENAI_API_KEY")
 
 # Provide the path of PDF file
-pdfreader = PdfReader(r"C:\Users\nnuai\Downloads\astronomy.pdf")
+pdfreader = PdfReader(r"C:\Users\nnuai\Downloads\astronomy_textbook.pdf")
 
 from typing_extensions import Concatenate
 # read text from pdf
