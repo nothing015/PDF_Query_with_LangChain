@@ -1,4 +1,4 @@
-# pip install langchain langchain_community langchain_core chromadb beautifulsoup4
+# pip install langchain langchain_community langchain_core chromadb beautifulsoup4 
 # Boot up ollama software
 # ollama pull nomic-embed-text
 from langchain_community.document_loaders import WebBaseLoader
