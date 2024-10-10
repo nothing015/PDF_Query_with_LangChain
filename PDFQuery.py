@@ -26,69 +26,6 @@ that aligns with OpenAI's expectations, which is important for accurate
 text generation and analysis.
 """
 
-# # pip install openai
-# # pip install PyPDF2
-# # pip install faiss-cpu
-# # pip install tiktoken
-#
-# # This class allows for reading PDF files and extracting text from them
-# from PyPDF2 import PdfReader
-#
-# # This class is used to generate embeddings (vector representations) of text using OpenAI's models
-# from langchain_openai import OpenAIEmbeddings
-#
-# # This class is used to split text into smaller chunks based on character count,
-# # which is useful for processing long texts in manageable segments
-# from langchain.text_splitter import CharacterTextSplitter
-#
-# # The FAISS class in langchain is used to create and query a vector store for embeddings
-# from langchain_community.vectorstores import FAISS
-#
-#
-# import os
-# # Here the OpenAI API key is entered. Mine is confidential hence I'm using an environment variable to hide my API
-# # Key inside my system
-# #sk-proj-8dOdMP049Um0gsKuF6uYT3BlbkFJpBXtuvUf3RlqfzHQOO4T
-# os.environ["OPENAI_API_KEY"] = "sk-proj-8dOdMP049Um0gsKuF6uYT3BlbkFJpBXtuvUf3RlqfzHQOO4T"
-# print(os.environ.get("OPENAI_API_KEY"))
-# # Provide the path of PDF file
-# pdfreader = PdfReader(r"C:\Users\nnuai\Downloads\name.pdf")
-#
-# from typing_extensions import Concatenate
-# # read text from pdf
-# rawText = ""
-# for index, page in enumerate(pdfreader.pages):
-#     content = page.extract_text()
-#     if content is not None:
-#         rawText += content
-#
-# # print(rawText)
-# # Splitting the text using Character Text Split such that it should not increase token size
-# text_splitter = CharacterTextSplitter(
-#     separator = "\n",
-#     chunk_size = 1500,
-#     chunk_overlap = 200,
-#     length_function = len,
-# )
-#
-# # Splitting text into manageable chunks
-# texts = text_splitter.split_text(rawText)
-#
-# # Download embeddings from OpenAI for the text chunks
-# embeddings = OpenAIEmbeddings()
-#
-# # This embeds the 'texts' into embeddings and makes it a langChain vectorstore
-# document_search = FAISS.from_texts(texts, embeddings)
-#
-# from langchain.chains.question_answering import (load_qa_chain)
-# from langchain.llms import OpenAI
-#
-# chain = load_qa_chain(OpenAI(), chain_type="stuff")
-#
-# query = "What is my name?"
-# docs = document_search.similarity_search(query)
-# print(chain.run(input_documents=docs, question = query))
-
 import os
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
